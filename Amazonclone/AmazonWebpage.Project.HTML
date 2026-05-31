@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Style Shopping Page</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e7eef2;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: auto auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 10px 18px;
+      background: #131921;
+      color: white;
+    }
+
+    .brand {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .brand small {
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    .location span,
+    .account a {
+      color: #d5d9d9;
+      font-size: 12px;
+    }
+
+    .location strong,
+    .account strong {
+      color: white;
+      font-size: 14px;
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: 80px 1fr 90px;
+      height: 42px;
+    }
+
+    .search select,
+    .search input,
+    .search button {
+      border: none;
+      font-size: 15px;
+    }
+
+    .search select {
+      padding-left: 10px;
+      background: #e6e6e6;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .search input {
+      padding: 0 14px;
+    }
+
+    .search button {
+      background: #febd69;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .account {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .cart {
+      position: relative;
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 10px 12px;
+      font-weight: bold;
+    }
+
+    .cart span {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #f08804;
+      color: black;
+      border-radius: 50%;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 16px;
+      padding: 10px 18px;
+      background: #232f3e;
+      color: white;
+    }
+
+    .menu a:hover {
+      color: #febd69;
+    }
+
+    .hero {
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      padding: 50px;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.25)),
+        url("https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=1600&q=80") center/cover;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .deal-label {
+      display: inline-block;
+      background: #cc0c39;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 15px 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ffd814;
+      color: black;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .offer-strip {
+      width: 90%;
+      margin: -40px auto 25px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .offer-strip article {
+      background: white;
+      padding: 18px;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .offer-strip strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .category-section {
+      width: 90%;
+      margin: 30px auto;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title a {
+      color: #007185;
+      font-weight: bold;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      position: relative;
+      background: white;
+      padding: 18px;
+      border-radius: 6px;
+      border: 1px solid #d5d9d9;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-radius: 4px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #cc0c39;
+      color: white;
+      padding: 6px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .rating {
+      color: #f59e0b;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    del {
+      color: #64748b;
+    }
+
+    .delivery {
+      color: #007600;
+      font-weight: bold;
+    }
+
+    .add-cart {
+      width: 100%;
+      border: none;
+      border-radius: 22px;
+      background: #ffd814;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .add-cart:hover,
+    .hero-button:hover,
+    .search button:hover {
+      background: #f7ca00;
+    }
+
+    .info-section {
+      width: 90%;
+      margin: 30px auto;
+      background: white;
+      padding: 24px;
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+      border: 1px solid #d5d9d9;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .steps article {
+      border-left: 4px solid #ff9900;
+      padding: 8px 12px;
+    }
+
+    .steps strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: #131921;
+      color: white;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    footer a {
+      display: block;
+      background: #37475a;
+      padding: 14px;
+    }
+
+    footer p {
+      margin: 0;
+      padding: 24px;
+      color: #d5d9d9;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .account {
+        justify-content: space-between;
+      }
+
+      .offer-strip,
+      .product-grid,
+      .steps,
+      .info-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">amazon<small>.in</small></a>
+
+    <div class="location">
+      <span>Deliver to</span><br>
+      <strong>India</strong>
+    </div>
+
+    <form class="search">
+      <select>
+        <option>All</option>
+        <option>Laptops</option>
+        <option>Phones</option>
+        <option>Vehicles</option>
+        <option>Shoes</option>
+      </select>
+      <input type="search" placeholder="Search Amazon products">
+      <button type="submit">Search</button>
+    </form>
+
+    <nav class="account">
+      <a href="#">Hello, sign in<br><strong>Account & Lists</strong></a>
+      <a href="#">Returns<br><strong>& Orders</strong></a>
+      <a class="cart" href="#">Cart <span id="cartCount">0</span></a>
+    </nav>
+  </header>
+
+  <nav class="menu">
+    <a href="#laptops">Laptops</a>
+    <a href="#phones">Phones</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#shoes">Shoes</a>
+    <a href="#refund">Refund Process</a>
+    <a href="#offers">Flat Offers</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="deal-label">Mega Shopping Days</p>
+      <h1>Flat 40% off on electronics, shoes and daily deals</h1>
+      <p>Shop popular products with fast delivery, easy returns, secure payment and limited-time bank discounts.</p>
+      <a class="hero-button" href="#offers">Explore offers</a>
+    </div>
+  </section>
+
+  <section id="offers" class="offer-strip">
+    <article>
+      <strong>Flat Offer</strong>
+      <span>Extra 10% instant discount on credit cards.</span>
+    </article>
+
+    <article>
+      <strong>Free Delivery</strong>
+      <span>On eligible orders above Rs. 499.</span>
+    </article>
+
+    <article>
+      <strong>Easy Refund</strong>
+      <span>Refund starts after pickup quality check.</span>
+    </article>
+
+    <article>
+      <strong>Secure Pay</strong>
+      <span>UPI, card, net banking and cash on delivery.</span>
+    </article>
+  </section>
+
+  <section id="laptops" class="category-section">
+    <div class="section-title">
+      <h2>Best Laptop Deals</h2>
+      <a href="#">See all</a>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <span class="badge">27% off</span>
+        <img src="https://media.gettyimages.com/id/491800154/photo/macbook-pro.jpg?s=612x612&w=gi&k=20&c=0lZUR0uWlHJChCcTtp2Hys7hMdxnpD3z1iLzQvuDD6c=" alt="Laptop">
+        <h3>Apple MacBook Pro</h3>
+        <p class="rating">4.4 out of 5</p>
+        <p><span class="price">Rs. 1,09,990</span> <del>Rs. 1,49,990</del></p>
+        <p class="delivery">Free delivery by tomorrow</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <span class="badge">31% off</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGsMz9g3T9PfjNeDzAEoCqWCfjp53afA-f8Q&s" alt="Laptop">
+        <h3>Performance Laptop</h3>
+        <p class="rating">4.2 out of 5</p>
+        <p><span class="price">Rs. 54,999</span> <del>Rs. 79,999</del></p>
+        <p class="delivery">No-cost EMI available</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="phones" class="category-section">
+    <div class="section-title">
+      <h2>Phones Recommended For You</h2>
+      <a href="#">See all</a>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <span class="badge">Deal</span>
+        <img src="https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg" alt="Phone">
+        <h3>Smart Phone 5G</h3>
+        <p class="rating">4.1 out of 5</p>
+        <p><span class="price">Rs. 18,499</span> <del>Rs. 24,999</del></p>
+        <p class="delivery">Exchange bonus up to Rs. 7,500</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <span class="badge">18% off</span>
+        <img src="https://media.istockphoto.com/id/1364620309/photo/iphone-13-pro.jpg?s=612x612&w=0&k=20&c=2h5Q46wh-eRyPwh4KKnJhCKFWqcd2ltgv9tdaULDdbc=" alt="Phone">
+        <h3>Premium iPhone</h3>
+        <p class="rating">4.7 out of 5</p>
+        <p><span class="price">Rs. 64,999</span> <del>Rs. 79,900</del></p>
+        <p class="delivery">Bank discount up to Rs. 4,000</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="vehicles" class="category-section">
+    <div class="section-title">
+      <h2>Vehicles And Accessories</h2>
+      <a href="#">See all</a>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <span class="badge">Hot</span>
+        <img src="https://img.freepik.com/premium-photo/bike-image-background-wallpaper_573563-4184.jpg?semt=ais_hybrid&w=740&q=80" alt="Bike">
+        <h3>Sports Bike Cover</h3>
+        <p class="rating">4.3 out of 5</p>
+        <p><span class="price">Rs. 899</span> <del>Rs. 1,499</del></p>
+        <p class="delivery">Waterproof and dustproof</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <span class="badge">25% off</span>
+        <img src="https://img.freepik.com/free-photo/easy-use-folding-bike-city_23-2149064847.jpg?semt=ais_hybrid&w=740&q=80" alt="Cycle">
+        <h3>City Folding Bicycle</h3>
+        <p class="rating">4.0 out of 5</p>
+        <p><span class="price">Rs. 12,499</span> <del>Rs. 16,999</del></p>
+        <p class="delivery">Assembly support included</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="shoes" class="category-section">
+    <div class="section-title">
+      <h2>Shoes Under Special Discount</h2>
+      <a href="#">See all</a>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <span class="badge">45% off</span>
+        <img src="https://media.istockphoto.com/id/1350560575/photo/pair-of-blue-running-sneakers-on-white-background-isolated.jpg?s=612x612&w=0&k=20&c=A3w_a9q3Gz-tWkQL6K00xu7UHdN5LLZefzPDp-wNkSU=" alt="Shoes">
+        <h3>Blue Running Sneakers</h3>
+        <p class="rating">4.4 out of 5</p>
+        <p><span class="price">Rs. 1,499</span> <del>Rs. 2,799</del></p>
+        <p class="delivery">7-day replacement</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <span class="badge">Best seller</span>
+        <img src="https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg" alt="Shoes">
+        <h3>Daily Casual Shoes</h3>
+        <p class="rating">4.2 out of 5</p>
+        <p><span class="price">Rs. 1,099</span> <del>Rs. 1,999</del></p>
+        <p class="delivery">Cash on delivery available</p>
+        <button class="add-cart">Add to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="refund" class="info-section">
+    <div>
+      <h2>Discount And Refund Process</h2>
+      <p>Apply coupon offers during checkout. Bank discounts appear before payment after you choose an eligible card or UPI offer.</p>
+    </div>
+
+    <div class="steps">
+      <article>
+        <strong>1. Place Return</strong>
+        <span>Open your order, choose return or replacement, and select the reason.</span>
+      </article>
+
+      <article>
+        <strong>2. Pickup Check</strong>
+        <span>Pack the product with tags, invoice and accessories for pickup verification.</span>
+      </article>
+
+      <article>
+        <strong>3. Refund Issued</strong>
+        <span>Refund is processed to the original payment method after approval.</span>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#">Back to top</a>
+    <p>Amazon-style demo webpage made with HTML and CSS for learning.</p>
+  </footer>
+
+  <script>
+    const cartCount = document.getElementById("cartCount");
+    const buttons = document.querySelectorAll(".add-cart");
+    const searchForm = document.querySelector(".search");
+    let totalItems = 0;
+
+    searchForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+    });
+
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        totalItems = totalItems + 1;
+        cartCount.textContent = totalItems;
+        button.textContent = "Added";
+
+        setTimeout(function() {
+          button.textContent = "Add to Cart";
+        }, 900);
+      });
+    });
+  </script>
+</body>
+</html>

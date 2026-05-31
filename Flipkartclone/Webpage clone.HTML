@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flipkart Style Shopping Page</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f3f6;
+      color: #1b2141;
+      line-height: 1.5;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #2874f0;
+      color: #fff;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.8rem;
+      color: #ffe500;
+    }
+
+    .search input {
+      width: 360px;
+      max-width: 100%;
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 24px;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .categories div {
+      background: #f5f5f5;
+      color: #333;
+      padding: 12px 18px;
+      border-radius: 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2874f0 0%, #3f74ff 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .hero button {
+      background: #ffe500;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .deals {
+      padding: 40px 24px;
+    }
+
+    .deals h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .card .img {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #1d2b4f;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      padding: 32px 24px;
+      background: #172b4d;
+      color: #fff;
+    }
+
+    footer h4 {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search {
+        margin: 16px 0;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      Flipkart
+      <span>Explore Plus</span>
+    </div>
+
+    <div class="search">
+      <input type="search" placeholder="Search for Products, Brands and More" />
+    </div>
+
+    <nav>
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+      <a href="#">Become a Seller</a>
+    </nav>
+  </header>
+
+  <section class="categories">
+    <div>Minutes</div>
+    <div>Mobiles</div>
+    <div>Fashion</div>
+    <div>Electronics</div>
+    <div>TVs</div>
+    <div>Furniture</div>
+    <div>Flights</div>
+    <div>Beauty</div>
+    <div>Grocery</div>
+  </section>
+
+  <section class="hero">
+    <h1>Big Saving Days</h1>
+    <p>Best deals on mobiles, fashion, electronics and more.</p>
+    <button>Shop Now</button>
+  </section>
+
+  <section class="deals">
+    <h2>Top Deals</h2>
+
+    <div class="products">
+      <div class="card">
+        <div class="img">📱</div>
+        <p>Mobiles</p>
+        <h3>From ₹6,999</h3>
+      </div>
+
+      <div class="card">
+        <div class="img">🎧</div>
+        <p>Speakers</p>
+        <h3>From ₹499</h3>
+      </div>
+
+      <div class="card">
+        <div class="img">⌚</div>
+        <p>Smart Watches</p>
+        <h3>From ₹1,399</h3>
+      </div>
+
+      <div class="card">
+        <div class="img">🖨️</div>
+        <p>Printers</p>
+        <h3>From ₹2,399</h3>
+      </div>
+
+      <div class="card">
+        <div class="img">📷</div>
+        <p>Cameras</p>
+        <h3>From ₹23,599</h3>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <h4>ABOUT</h4>
+      <p>Contact Us</p>
+      <p>About Us</p>
+      <p>Careers</p>
+    </div>
+
+    <div>
+      <h4>HELP</h4>
+      <p>Payments</p>
+      <p>Shipping</p>
+      <p>Returns</p>
+    </div>
+
+    <div>
+      <h4>POLICY</h4>
+      <p>Privacy</p>
+      <p>Terms of Use</p>
+      <p>Security</p>
+    </div>
+
+    <div>
+      <h4>ADDRESS</h4>
+      <p>Flipkart Internet Private Limited</p>
+      <p>Bengaluru, Karnataka, India</p>
+    </div>
+  </footer>
+</body>
+</html>
