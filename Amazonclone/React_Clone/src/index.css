@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f3f3f3;
+  color: #111;
+}
+
+/* Main App Container */
+.app {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* Banner Image */
+.banner {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #232f3e;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff9900;
+}
+
+/* Section Headings */
+.section-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #232f3e;
+  font-size: 28px;
+}
+
+/* Product Table */
+.product-table {
+  margin: 0 auto 30px auto;
+  border-collapse: collapse;
+}
+
+/* Product Card */
+.product-table th {
+  background-color: white;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Product Images */
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+  background-color: #232f3e;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.footer h1 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 18px;
+}
+
