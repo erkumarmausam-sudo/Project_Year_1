@@ -38,3 +38,16 @@ Building these webpage clones helped me improve my frontend development skills, 
 ## 👨‍💻 Author
 
 <h1> <b>**Mausam Kumar**</b></h1>
+
+
+
+## ✨ Keep Learning • Keep Coding • Keep Growing 🚀
+
+> **"The more you code, the more you learn. Every problem solved today prepares you for tomorrow's challenges."** 💙
+---
+
+<div align="center">
+  If you find my GitHub profile useful please consider giving a star to my projects ❤
+  <br>
+  ⭐ Built with ❤️ by <b>**Mausam Kumar**</b> 
+</div>
