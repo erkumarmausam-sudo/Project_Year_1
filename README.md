@@ -37,4 +37,4 @@ Building these webpage clones helped me improve my frontend development skills, 
 
 ## 👨‍💻 Author
 
-Mausam Rajput
+<h1> <b>Mausam Kumar </b></h1>
