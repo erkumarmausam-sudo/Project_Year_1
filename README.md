@@ -8,7 +8,7 @@ This repository contains my first-year frontend web development projects based o
 * CSS
 * React JS
      
-## 📌 Project Features
+##  Project Features
 
 * Responsive webpage layouts
 * Navigation bars and homepage sections
