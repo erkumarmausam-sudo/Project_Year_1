@@ -16,7 +16,7 @@ This repository contains my first-year frontend web development projects based o
 * Basic frontend styling and design
 * Simple React component structure
 
-## 🎯 Purpose of the Project
+##  Purpose of the Project
 
 The main goal of this project was to learn and understand:
 
