@@ -2,7 +2,7 @@
 
 This repository contains my first-year frontend web development projects based on Amazon and Flipkart webpage clones. The projects were created to practice and improve my skills in basic web development technologies.
 
-## 🚀 Technologies Used
+##  Technologies Used
   
 * HTML
 * CSS
